@@ -1,0 +1,2579 @@
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20170826214618)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170826214618"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-26 21:47:19.552808"], ["updated_at", "2017-08-26 21:47:19.552808"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-08-26 17:49:24 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (8.3ms)
+Completed 200 OK in 40ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 17:49:27 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 1087ms (Views: 1073.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 17:49:33 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (45.7ms)
+  Rendered posts/new.html.erb within layouts/application (52.1ms)
+Completed 200 OK in 134ms (Views: 101.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-08-26 17:49:42 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Km83AMUC3/wjnPerc/1VVAi51okeihiv9OByCWot6BlaOJtMi72bGizQukBXQH1uN7EXlPTeTZYyeH2s1rGA0g==", "post"=>{"title"=>"Do stuff.", "description"=>"A description."}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Do stuff."], ["description", "A description."], ["created_at", "2017-08-26 21:49:42.419472"], ["updated_at", "2017-08-26 21:49:42.419472"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 23ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-26 17:49:42 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 115ms (Views: 90.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 17:49:44 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 96ms (Views: 82.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 17:52:37 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 130ms (Views: 120.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:10:58 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.1ms)
+  Rendered posts/new.html.erb within layouts/application (9.4ms)
+Completed 500 Internal Server Error in 722ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `layouts' for #<#<Class:0x007ff5b46ad1d0>:0x007ff5afc6c7d8>):
+    89:     <symbol id="youtube" viewBox="0 0 24 24"><path d="M23.6 6.3c-.3-1.2-1.4-2.2-2.6-2.3-3-.3-6-.3-9-.3s-6 0-9 .3c-1.2.1-2.3 1.1-2.6 2.3-.4 1.8-.4 3.8-.4 5.7 0 1.9 0 3.9.4 5.7.3 1.2 1.4 2.2 2.6 2.3 3 .3 6 .3 9 .3s6 0 9-.3c1.3-.1 2.3-1.1 2.6-2.4.4-1.7.4-3.7.4-5.6 0-1.9 0-3.9-.4-5.7zm-14.1 9v-6.6l6.5 3.3-6.5 3.3z"/></symbol>
+    90:   
+    91:   </svg>
+    92:   <%= render layouts/header %>
+    93:     <%= yield %>
+    94:     <%= render layouts/footer %>
+    95:     <!-- Preloader -->
+  
+app/views/layouts/application.html.erb:92:in `_app_views_layouts_application_html_erb__2510528672691212310_70346657089560'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:12:27 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.2ms)
+  Rendered posts/new.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_header.html.erb (329.1ms)
+Completed 500 Internal Server Error in 384ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `posts_new_path' for #<#<Class:0x007ff5b46ad1d0>:0x007ff5b38631b0>
+Did you mean?  posts_path):
+    11:           <div class="left"><a href="#top" title="Good Friday Initiative"><svg style="width:107px;height:31px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logomin"></use></svg></a></div>
+    12:           <div class="center">
+    13:             <ul class="menu">
+    14:                       <li><%= link_to "Share a story", posts_new_path %></li>
+    15:                       <li><%= link_to "Read stories", posts_path %></li>
+    16:             </ul>
+    17:           </div>
+  
+app/views/layouts/_header.html.erb:14:in `_app_views_layouts__header_html_erb__716131843246761212_70346604943300'
+app/views/layouts/application.html.erb:92:in `_app_views_layouts_application_html_erb__2510528672691212310_70346608198780'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:12:48 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.9ms)
+  Rendered posts/new.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_header.html.erb (364.1ms)
+Completed 500 Internal Server Error in 432ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `posts_new' for #<#<Class:0x007ff5b46ad1d0>:0x007ff5b62feca8>
+Did you mean?  posts_url):
+    11:           <div class="left"><a href="#top" title="Good Friday Initiative"><svg style="width:107px;height:31px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logomin"></use></svg></a></div>
+    12:           <div class="center">
+    13:             <ul class="menu">
+    14:                       <li><%= link_to "Share a story", posts_new %></li>
+    15:                       <li><%= link_to "Read stories", posts_path %></li>
+    16:             </ul>
+    17:           </div>
+  
+app/views/layouts/_header.html.erb:14:in `_app_views_layouts__header_html_erb__716131843246761212_70346631335120'
+app/views/layouts/application.html.erb:92:in `_app_views_layouts_application_html_erb__2510528672691212310_70346609678120'
+Started GET "/routes" for 127.0.0.1 at 2017-08-26 18:13:02 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/routes" for 127.0.0.1 at 2017-08-26 18:13:20 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:13:23 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 55ms (Views: 48.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:13:26 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.9ms)
+  Rendered posts/new.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 75ms (Views: 69.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:13:28 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 90ms (Views: 80.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:13:29 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.8ms)
+  Rendered posts/new.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 105ms (Views: 100.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:13:31 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 90ms (Views: 80.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:13:32 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (11.6ms)
+  Rendered posts/new.html.erb within layouts/application (16.6ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 112ms (Views: 105.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:13:33 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 84ms (Views: 71.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:13:35 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 88ms (Views: 81.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:14:48 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 52ms (Views: 47.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:16:12 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 54ms (Views: 50.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:16:22 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 59ms (Views: 53.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:16:45 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 68ms (Views: 63.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:16:54 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 60ms (Views: 54.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:17:46 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 69ms (Views: 64.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:17:49 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 64ms (Views: 60.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:18:57 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 55ms (Views: 49.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:23:58 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 55ms (Views: 50.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:24:08 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 65ms (Views: 56.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:24:18 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 65ms (Views: 59.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:24:26 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 58ms (Views: 53.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:25:45 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 134ms (Views: 128.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:25:49 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 54ms (Views: 49.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:26:09 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 50ms (Views: 45.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:26:26 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 56ms (Views: 50.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:26:37 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 66ms (Views: 59.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:27:48 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 64ms (Views: 58.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:28:59 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 59ms (Views: 54.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:29:07 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 62ms (Views: 57.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:29:12 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.9ms)
+  Rendered posts/new.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 49ms (Views: 44.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:29:51 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.2ms)
+  Rendered posts/new.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 98ms (Views: 93.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at 2017-08-26 18:30:06 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 78ms (Views: 70.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at 2017-08-26 18:31:20 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (13.6ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:14: unknown regexp option - l
+unmatched close parenthesis: /div>
+          <div class="center">
+            <ul class="menu">
+                      <li><%= link_to "Share a story", new_post_path );@output_buffer.safe_append='</i
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:15: syntax error, unexpected '<'
+                      <li>'.freeze;@output_buffer.ap...
+                       ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:16: unknown regexp option - l
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:17: syntax error, unexpected '<'
+          </div>
+           ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:18: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...="http://www.w3.org/1999/xlink" xlink:href="#share"></use></...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:19: syntax error, unexpected '<', expecting ')'
+        </div>
+         ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:21: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...="http://www.w3.org/1999/xlink" xlink:href="#logomin"></use>...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:22: syntax error, unexpected '<', expecting ')'
+          <div class="right">
+           ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:23: syntax error, unexpected '<'
+            <span class="button actionButt...
+             ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ionButton dropdownTrigger" data-dropdown-id="1"><svg><use xm...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:23: syntax error, unexpected '<'
+...Trigger" data-dropdown-id="1"><svg><use xmlns:xlink="http://...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+...://www.w3.org/1999/xlink" xlink:href="#share"></use></svg></...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:23: syntax error, unexpected '<'
+...99/xlink" xlink:href="#share"></use></svg></span><span class...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:23: unknown regexp options - vg
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:23: syntax error, unexpected '<'
+...ink:href="#share"></use></svg></span><span class="button act...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:23: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></s...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:24: syntax error, unexpected '<', expecting ')'
+          </div>
+           ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:25: unknown regexp options - dv
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:26: syntax error, unexpected '<'
+      </nav>
+       ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:30: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...="http://www.w3.org/1999/xlink" xlink:href="#close"></use></...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:31: syntax error, unexpected '<', expecting ')'
+        <div class="content">
+         ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+          <a href="#top" title="Good Fri...
+           ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+          <a href="#top" title="Good Friday Initiative" cla...
+                              ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected keyword_class, expecting ')'
+...="Good Friday Initiative" class="logo"><svg width="120" heig...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+...iday Initiative" class="logo"><svg width="120" height="50"><...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+...="logo"><svg width="120" height="50"><use xmlns:xlink="http:...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+...><svg width="120" height="50"><use xmlns:xlink="http://www.w...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+...://www.w3.org/1999/xlink" xlink:href="#logomin"></use></svg>...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+.../xlink" xlink:href="#logomin"></use></svg></a>
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: unknown regexp options - vg
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+...k:href="#logomin"></use></svg></a>
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:34: unknown regexp option - a
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:34: syntax error, unexpected '<'
+            <li><a href="#form">Share a story</a></li>
+                                                  ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:35: unknown regexp option - a
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:35: syntax error, unexpected '<'
+            <li><a href="#stories">Read stories</a></li>
+                                                    ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:36: unknown regexp option - l
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:37: syntax error, unexpected '<'
+        </div>
+         ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:38: unknown regexp options - av
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:40: syntax error, unexpected '<'
+      <!-- Share Window -->
+       ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:40: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+      <!-- Share Window -->
+                       ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:40: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+..."dropdown share top right" data-dropdown-id="1" data-text="C...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ight" data-dropdown-id="1" data-text="Check out this new ini...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+...k out this new initiative" data-url="http://www.goodfridayin...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:42: syntax error, unexpected '<'
+        <div class="title">Share</div>
+         ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:44: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...="http://www.w3.org/1999/xlink" xlink:href="#fb-like"></use>...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:45: syntax error, unexpected '<', expecting ')'
+          <li class="twitter"><svg><use ...
+           ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:45: syntax error, unexpected '<'
+...          <li class="twitter"><svg><use xmlns:xlink="http://...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:45: syntax error, unexpected tIDENTIFIER, expecting ')'
+...://www.w3.org/1999/xlink" xlink:href="#twitter"></use></svg>...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:45: syntax error, unexpected '<'
+.../xlink" xlink:href="#twitter"></use></svg></li>
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:45: unknown regexp options - vg
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:45: syntax error, unexpected '<'
+...k:href="#twitter"></use></svg></li>
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:46: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...="http://www.w3.org/1999/xlink" xlink:href="#googlePlus"></u...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:47: syntax error, unexpected '<', expecting ')'
+          <!-- <li class="pinterest"><sv...
+           ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:47: syntax error, unexpected '<'
+          <!-- <li class="pinterest"><svg><us...
+                ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:47: syntax error, unexpected '<'
+...   <!-- <li class="pinterest"><svg><use xmlns:xlink="http://...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:47: syntax error, unexpected tIDENTIFIER, expecting ')'
+...://www.w3.org/1999/xlink" xlink:href="#pinterest"></use></sv...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:47: syntax error, unexpected '<'
+...link" xlink:href="#pinterest"></use></svg></li> -->
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:47: unknown regexp options - vg
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:47: syntax error, unexpected '<'
+...href="#pinterest"></use></svg></li> -->
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:48: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...="http://www.w3.org/1999/xlink" xlink:href="#stumbleupon"></...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:49: syntax error, unexpected '<', expecting ')'
+          <li class="linkedin"><svg><use...
+           ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:49: syntax error, unexpected '<'
+...         <li class="linkedin"><svg><use xmlns:xlink="http://...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:49: syntax error, unexpected tIDENTIFIER, expecting ')'
+...://www.w3.org/1999/xlink" xlink:href="#linkedin"></use></svg...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:49: syntax error, unexpected '<'
+...xlink" xlink:href="#linkedin"></use></svg></li -->
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:49: unknown regexp options - vg
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:49: syntax error, unexpected '<'
+...:href="#linkedin"></use></svg></li -->
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:50: unknown regexp option - l
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:51: syntax error, unexpected '<'
+        </ul>
+         ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:52: unknown regexp options - dv
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:52: unterminated string meets end of file
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/layouts/_header.html.erb:52: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/layouts/_header.html.erb:14: unknown regexp option - l
+app/views/layouts/_header.html.erb:15: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:16: unknown regexp option - l
+app/views/layouts/_header.html.erb:17: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:18: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_header.html.erb:19: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_header.html.erb:21: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_header.html.erb:22: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_header.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:23: unknown regexp options - vg
+app/views/layouts/_header.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:23: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_header.html.erb:24: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_header.html.erb:25: unknown regexp options - dv
+app/views/layouts/_header.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:30: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_header.html.erb:31: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:32: syntax error, unexpected keyword_class, expecting ')'
+app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:32: unknown regexp options - vg
+app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:34: unknown regexp option - a
+app/views/layouts/_header.html.erb:34: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:35: unknown regexp option - a
+app/views/layouts/_header.html.erb:35: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:36: unknown regexp option - l
+app/views/layouts/_header.html.erb:37: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:38: unknown regexp options - av
+app/views/layouts/_header.html.erb:40: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:40: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+app/views/layouts/_header.html.erb:40: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/layouts/_header.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:42: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:44: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_header.html.erb:45: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_header.html.erb:45: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:45: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:45: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:45: unknown regexp options - vg
+app/views/layouts/_header.html.erb:45: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:46: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_header.html.erb:47: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_header.html.erb:47: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:47: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:47: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:47: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:47: unknown regexp options - vg
+app/views/layouts/_header.html.erb:47: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:48: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_header.html.erb:49: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_header.html.erb:49: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:49: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:49: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:49: unknown regexp options - vg
+app/views/layouts/_header.html.erb:49: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:50: unknown regexp option - l
+app/views/layouts/_header.html.erb:51: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:52: unknown regexp options - dv
+app/views/layouts/_header.html.erb:52: unterminated string meets end of file
+app/views/layouts/_header.html.erb:52: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:94:in `_app_views_layouts_application_html_erb__2510528672691212310_70346649179380'
+Started GET "/posts/" for 127.0.0.1 at 2017-08-26 18:31:41 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 54ms (Views: 48.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:31:44 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 60ms (Views: 53.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:32:30 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 54ms (Views: 48.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:32:34 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 75ms (Views: 68.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:34:22 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 118ms (Views: 111.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:34:49 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 76ms (Views: 71.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:34:53 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 48ms (Views: 43.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:36:05 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 48ms (Views: 43.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:37:11 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (26.3ms)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/config
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/images
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/stylesheets
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actioncable-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/node_modules):
+    11:     
+    12:     <%= csrf_meta_tags %>
+    13:     <%= stylesheet_link_tag    'application' %>
+    14:     <%= javascript_include_tag 'application' %>
+    15:   </head>
+    16: 
+    17:   <body class="slides scroll animated">
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__2510528672691212310_70346595298860'
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:40:29 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/config
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/images
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/stylesheets
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actioncable-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/node_modules):
+    11:     
+    12:     <%= csrf_meta_tags %>
+    13:     <%= stylesheet_link_tag    'application' %>
+    14:     <%= javascript_include_tag 'application' %>
+    15:   </head>
+    16: 
+    17:   <body class="slides scroll animated">
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__2510528672691212310_70346648880080'
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:41:21 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 334ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery_ujs' with type 'application/javascript'
+Checked in these paths: 
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/config
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/images
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/stylesheets
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actioncable-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/node_modules):
+    11:     
+    12:     <%= csrf_meta_tags %>
+    13:     <%= stylesheet_link_tag    'application' %>
+    14:     <%= javascript_include_tag 'application' %>
+    15:   </head>
+    16: 
+    17:   <body class="slides scroll animated">
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__2510528672691212310_70346604141980'
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:42:37 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 789ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery_ujs' with type 'application/javascript'
+Checked in these paths: 
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/config
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/images
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/stylesheets
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actioncable-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/node_modules):
+    11:     
+    12:     <%= csrf_meta_tags %>
+    13:     <%= stylesheet_link_tag    'application' %>
+    14:     <%= javascript_include_tag 'application' %>
+    15:     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    16:   </head>
+    17: 
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__2510528672691212310_70346630321120'
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:42:54 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 112ms (Views: 105.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:44:38 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/config
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/images
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/stylesheets
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actioncable-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/node_modules):
+    11:     
+    12:     <%= csrf_meta_tags %>
+    13:     <%= stylesheet_link_tag    'application' %>
+    14:     <%= javascript_include_tag 'application' %>
+    15:     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    16:   </head>
+    17: 
+  
+app/assets/javascripts/application.js:12
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__2510528672691212310_70346633521420'
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:47:23 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 1037ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/config
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/images
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/stylesheets
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actioncable-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/node_modules):
+    11:     
+    12:     <%= csrf_meta_tags %>
+    13:     <%= stylesheet_link_tag    'application' %>
+    14:     <%= javascript_include_tag 'application' %>
+    15:     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    16:   </head>
+    17: 
+  
+app/assets/javascripts/application.js:12
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__2510528672691212310_70346649076880'
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:47:42 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/config
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/images
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/stylesheets
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actioncable-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/node_modules):
+    11:     
+    12:     <%= csrf_meta_tags %>
+    13:     <%= stylesheet_link_tag    'application' %>
+    14:     <%= javascript_include_tag 'application' %>
+    15:     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    16:   </head>
+    17: 
+  
+app/assets/javascripts/application.js:12
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__2510528672691212310_70346634312440'
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:48:02 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 1265ms (Views: 1260.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:48:21 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:48:51 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 60ms (Views: 56.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:49:16 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 111ms (Views: 106.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:49:49 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 98ms (Views: 92.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:54:15 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 59ms (Views: 52.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 18:54:22 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 50ms (Views: 46.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 18:54:49 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.9ms)
+  Rendered posts/new.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 60ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-08-26 18:54:57 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oFNZ7OSKqv7Uv2N9sIcLp8osVX23+KKSQT8g+qqBHSbl+X2KNM7IOM7tU5n+7nNmzyZUsBkhyMlQermywrJGAQ==", "post"=>{"title"=>"add another post", "description"=>"Here it is"}, "commit"=>"Create Post"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "add another post"], ["description", "Here it is"], ["created_at", "2017-08-26 22:54:57.711035"], ["updated_at", "2017-08-26 22:54:57.711035"]]
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 26ms (ActiveRecord: 14.7ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2017-08-26 18:54:57 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 52ms (Views: 44.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:55:00 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 66ms (Views: 60.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:56:30 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 125ms (Views: 119.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:56:59 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 104ms (Views: 100.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:57:25 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 142ms (Views: 137.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:57:47 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (37.3ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 758ms (Views: 748.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 18:58:42 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 152ms (Views: 146.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 19:02:28 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'video' with type 'application/javascript'
+Checked in these paths: 
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/config
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/images
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/javascripts
+  /Users/johncotton/Desktop/rails_prod/good_friday/app/assets/stylesheets
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actioncable-5.1.3/lib/assets/compiled
+  /Users/johncotton/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.3/lib/assets/compiled
+  /Users/johncotton/Desktop/rails_prod/good_friday/node_modules):
+    11:     
+    12:     <%= csrf_meta_tags %>
+    13:     <%= stylesheet_link_tag    'application' %>
+    14:     <%= javascript_include_tag 'application' %>
+    15:     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+    16:   </head>
+    17: 
+  
+app/assets/javascripts/application.js:16
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb___53793868413336165_70272740505800'
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 19:03:15 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 202ms (Views: 197.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:03:27 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 54ms (Views: 47.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:03:30 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 50ms (Views: 46.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:09:47 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 65ms (Views: 60.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:10:04 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 54ms (Views: 49.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:13:21 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 53ms (Views: 48.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:17:50 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 76ms (Views: 71.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:19:15 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 60ms (Views: 55.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:21:44 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 64ms (Views: 60.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:24:31 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 62ms (Views: 55.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:24:55 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 59ms (Views: 54.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 19:25:06 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 19:25:49 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 53ms (Views: 48.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 19:26:08 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 45.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:26:14 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 48ms (Views: 44.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:26:37 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 61ms (Views: 56.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:26:43 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 71ms (Views: 66.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:26:58 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 54ms (Views: 50.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:27:26 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 60ms (Views: 55.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:27:31 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 53ms (Views: 48.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 19:28:01 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 60ms (Views: 57.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 20:59:33 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 79ms (Views: 74.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:00:32 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (54.9ms)
+  Rendered posts/new.html.erb within layouts/application (60.4ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 143ms (Views: 128.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:03:50 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.3ms)
+  Rendered posts/new.html.erb within layouts/application (16.5ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 122ms (Views: 118.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:06:28 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/new.html.erb:13: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+...nk_to 'Back', posts_path class:"btn btn-large green" );@outp...
+...                               ^):
+  
+app/views/posts/new.html.erb:13: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:06:37 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (9.8ms)
+  Rendered posts/new.html.erb within layouts/application (26.9ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 98ms (Views: 94.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:06:52 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.7ms)
+  Rendered posts/new.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 111ms (Views: 105.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:06:59 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (10.1ms)
+  Rendered posts/new.html.erb within layouts/application (17.6ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 104ms (Views: 101.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:07:56 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (1.5ms)
+  Rendered posts/new.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:15: syntax error, unexpected ':', expecting ')'
+...end=( form.label :he_led_me_to: );@output_buffer.safe_append...
+...                               ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:27: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end 
+             ^
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:29: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:31: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/posts/_form.html.erb:15: syntax error, unexpected ':', expecting ')'
+app/views/posts/_form.html.erb:27: syntax error, unexpected keyword_end, expecting ')'
+app/views/posts/_form.html.erb:29: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/posts/_form.html.erb:31: syntax error, unexpected keyword_end, expecting ')'
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272760389260'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:08:00 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.6ms)
+  Rendered posts/new.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 60ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:09:34 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.7ms)
+  Rendered posts/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 72ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:09:54 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.2ms)
+  Rendered posts/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:25: syntax error, unexpected tLABEL, expecting '='
+...er.append=( form.submit, class:"button green" );@output_buff...
+...                               ^):
+  
+app/views/posts/_form.html.erb:25: syntax error, unexpected tLABEL, expecting '='
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272778641120'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:10:09 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.7ms)
+  Rendered posts/new.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 74ms (Views: 69.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:11:12 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.4ms)
+  Rendered posts/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 74ms (Views: 69.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:11:28 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/new.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:25: syntax error, unexpected tLABEL, expecting '='
+...er.append=( form.submit, class:"button green" );@output_buff...
+...                               ^):
+  
+app/views/posts/_form.html.erb:25: syntax error, unexpected tLABEL, expecting '='
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272796028720'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:13:37 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.6ms)
+  Rendered posts/new.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:25: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...append=( form.submit, :class => 'button green' );@output_buf...
+...                               ^):
+  
+app/views/posts/_form.html.erb:25: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272723436660'
+Started GET "/" for 127.0.0.1 at 2017-08-26 21:14:10 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 134ms (Views: 119.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:14:37 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (1.3ms)
+  Rendered posts/new.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:25: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...append=( form.submit, :class => 'button green' );@output_buf...
+...                               ^):
+  
+app/views/posts/_form.html.erb:25: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272778971700'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:14:51 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (1.4ms)
+  Rendered posts/new.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:25: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...append=( form.submit, :class => "button green" );@output_buf...
+...                               ^):
+  
+app/views/posts/_form.html.erb:25: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272714033500'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:16:18 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.5ms)
+  Rendered posts/new.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:25: syntax error, unexpected ',', expecting &. or :: or '[' or '.'
+...r.append=( form.submit,'Share', :class => "button green" );@...
+...                               ^):
+  
+app/views/posts/_form.html.erb:25: syntax error, unexpected ',', expecting &. or :: or '[' or '.'
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272780167340'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:17:59 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.4ms)
+  Rendered posts/new.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:25: syntax error, unexpected ',', expecting &. or :: or '[' or '.'
+....append=( form.submit, 'Share', :class => "button green" );@...
+...                               ^):
+  
+app/views/posts/_form.html.erb:25: syntax error, unexpected ',', expecting &. or :: or '[' or '.'
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272781216780'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:18:09 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.2ms)
+  Rendered posts/new.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/good_friday/app/views/posts/_form.html.erb:25: syntax error, unexpected ',', expecting &. or :: or '[' or '.'
+....append=( form.submit, 'Share', class:"button green" );@outp...
+...                               ^):
+  
+app/views/posts/_form.html.erb:25: syntax error, unexpected ',', expecting &. or :: or '[' or '.'
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___2095859121918334986_70272761405240'
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:18:18 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.6ms)
+  Rendered posts/new.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 96ms (Views: 92.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:18:56 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.3ms)
+  Rendered posts/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:19:26 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.8ms)
+  Rendered posts/new.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 76ms (Views: 72.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:19:44 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.2ms)
+  Rendered posts/new.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 81ms (Views: 77.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:20:02 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.9ms)
+  Rendered posts/new.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 110ms (Views: 105.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:21:59 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.4ms)
+  Rendered posts/new.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 81ms (Views: 78.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:22:17 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (10.0ms)
+  Rendered posts/new.html.erb within layouts/application (15.1ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 128ms (Views: 124.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:22:41 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.6ms)
+  Rendered posts/new.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 68ms (Views: 64.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:22:53 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (9.9ms)
+  Rendered posts/new.html.erb within layouts/application (33.9ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 202ms (Views: 199.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:23:11 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.8ms)
+  Rendered posts/new.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 83ms (Views: 79.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:23:42 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.1ms)
+  Rendered posts/new.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 63ms (Views: 60.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:23:51 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.6ms)
+  Rendered posts/new.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 70ms (Views: 66.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:24:03 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.4ms)
+  Rendered posts/new.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 126ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:24:28 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.2ms)
+  Rendered posts/new.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 97ms (Views: 92.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:24:49 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.7ms)
+  Rendered posts/new.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 91ms (Views: 88.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:25:03 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (9.0ms)
+  Rendered posts/new.html.erb within layouts/application (13.2ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (4.0ms)
+Completed 200 OK in 155ms (Views: 150.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:25:54 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.5ms)
+  Rendered posts/new.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 76ms (Views: 72.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:26:09 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (11.0ms)
+  Rendered posts/new.html.erb within layouts/application (16.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 109ms (Views: 105.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:26:32 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (11.0ms)
+  Rendered posts/new.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 102ms (Views: 98.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:26:58 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.1ms)
+  Rendered posts/new.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 117ms (Views: 113.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:27:09 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.3ms)
+  Rendered posts/new.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 79ms (Views: 76.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:27:32 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.1ms)
+  Rendered posts/new.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 81ms (Views: 77.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:27:42 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.0ms)
+  Rendered posts/new.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:27:51 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.4ms)
+  Rendered posts/new.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_header.html.erb (6.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 81ms (Views: 75.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:28:37 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.4ms)
+  Rendered posts/new.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 96ms (Views: 91.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:28:44 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (10.0ms)
+  Rendered posts/new.html.erb within layouts/application (14.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 86ms (Views: 83.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:28:49 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 79ms (Views: 62.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:31:09 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (14.9ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 264ms (Views: 256.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 21:31:18 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (2.3ms)
+Completed 200 OK in 73ms (Views: 69.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 21:32:52 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (420.2ms)
+Completed 500 Internal Server Error in 432ms
+
+
+  
+ActionView::Template::Error (undefined local variable or method `posts_index_path' for #<#<Class:0x007fd3491f10c0>:0x007fd3491e95f0>
+Did you mean?  posts_path):
+    13:           </div>
+    14:         </div>
+    15:  </section>
+    16:       <%= render posts_index_path %>
+  
+app/views/static_pages/home.html.erb:16:in `_app_views_static_pages_home_html_erb___2128728348720991441_70272720802020'
+Started GET "/" for 127.0.0.1 at 2017-08-26 21:33:16 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (9.9ms)
+Completed 500 Internal Server Error in 29ms
+
+
+  
+ActionView::Template::Error (Missing partial /_posts with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/johncotton/Desktop/rails_prod/good_friday/app/views"
+):
+    13:           </div>
+    14:         </div>
+    15:  </section>
+    16:       <%= render posts_path %>
+  
+app/views/static_pages/home.html.erb:16:in `_app_views_static_pages_home_html_erb___2128728348720991441_70272779680280'
+Started GET "/" for 127.0.0.1 at 2017-08-26 21:33:41 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 67ms (Views: 63.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:33:54 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.6ms)
+  Rendered posts/new.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 86ms (Views: 57.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:34:48 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.0ms)
+  Rendered posts/new.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 67ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:34:50 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (12.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 77ms (Views: 59.6ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:35:07 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.3ms)
+  Rendered posts/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 78ms (Views: 74.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-08-26 21:35:28 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T0RBHLgp2N+jO4oafae/gcgtaSVKoy52gFQ8FRrgvDQK7mV6aG26Gblpuv4zzsdAzSdo6OR6RC2REaVdctPnEw==", "post"=>{"title"=>"asdfjkl ", "description"=>"yasss"}, "commit"=>"Share"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asdfjkl "], ["description", "yasss"], ["created_at", "2017-08-27 01:35:28.985593"], ["updated_at", "2017-08-27 01:35:28.985593"]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 17ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2017-08-26 21:35:29 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 103ms (Views: 85.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:35:38 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 117ms (Views: 101.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:35:43 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 93ms (Views: 87.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:37:11 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 106ms (Views: 101.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:37:38 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 65ms (Views: 60.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:38:08 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 68ms (Views: 64.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:38:33 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 66ms (Views: 62.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:39:53 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 72ms (Views: 67.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:40:05 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 110ms (Views: 105.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:41:48 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.2ms)
+  Rendered posts/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_header.html.erb (8.3ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 93ms (Views: 88.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:42:12 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.6ms)
+  Rendered posts/index.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 61ms (Views: 56.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 21:42:18 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered posts/_feed.html.erb (5.8ms)
+  Rendered static_pages/home.html.erb within layouts/application (9.3ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    3:           <ul></ul>
+    4:         </div>
+    5:       </nav>
+    6:         <% @posts.each do |post| %>
+    7:         <!-- Slide 3 (#72) -->
+    8:     <section class="slide whiteSlide">
+    9:         <div class="content">
+  
+app/views/posts/_feed.html.erb:6:in `_app_views_posts__feed_html_erb__836433930714229484_70272781197840'
+app/views/static_pages/home.html.erb:16:in `_app_views_static_pages_home_html_erb___2128728348720991441_70272781570440'
+Started GET "/" for 127.0.0.1 at 2017-08-26 21:43:06 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (14.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (17.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 72ms (Views: 63.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:44:07 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (4.9ms)
+  Rendered posts/index.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 73ms (Views: 66.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 21:44:28 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (12.6ms)
+  Rendered static_pages/home.html.erb within layouts/application (15.9ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 66ms (Views: 61.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:44:40 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.9ms)
+  Rendered posts/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 60ms (Views: 55.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-26 21:53:02 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.0ms)
+  Rendered posts/new.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 170ms (Views: 166.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:53:05 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.3ms)
+  Rendered posts/index.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 79ms (Views: 63.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:53:17 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.6ms)
+  Rendered posts/index.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 86ms (Views: 82.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:54:12 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.5ms)
+  Rendered posts/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 163ms (Views: 159.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:54:51 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.4ms)
+  Rendered posts/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 193ms (Views: 188.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:56:10 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.5ms)
+  Rendered posts/index.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 93ms (Views: 87.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:56:36 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.0ms)
+  Rendered posts/index.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 74ms (Views: 70.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:57:06 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.2ms)
+  Rendered posts/index.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 73ms (Views: 66.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:57:10 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.5ms)
+  Rendered posts/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 58ms (Views: 54.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:57:41 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.3ms)
+  Rendered posts/index.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 76ms (Views: 71.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:58:37 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.4ms)
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 249ms (Views: 244.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:59:00 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.1ms)
+  Rendered posts/index.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 62ms (Views: 58.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 21:59:43 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.7ms)
+  Rendered posts/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 165ms (Views: 161.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:00:22 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.9ms)
+  Rendered posts/index.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 184ms (Views: 179.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:00:35 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.2ms)
+  Rendered posts/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 65ms (Views: 61.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:01:03 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.3ms)
+  Rendered posts/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 178ms (Views: 174.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:01:20 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (4.9ms)
+  Rendered posts/index.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 203ms (Views: 196.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:01:44 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.4ms)
+  Rendered posts/index.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 180ms (Views: 176.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:01:49 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.8ms)
+  Rendered posts/index.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 60ms (Views: 57.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:01:52 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (4.0ms)
+  Rendered posts/index.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 73ms (Views: 68.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:02:10 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.5ms)
+  Rendered posts/index.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 163ms (Views: 158.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:02:24 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.9ms)
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 184ms (Views: 180.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:02:43 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (5.3ms)
+  Rendered posts/index.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 219ms (Views: 214.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-26 22:04:58 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (4.2ms)
+  Rendered posts/index.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 281ms (Views: 276.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-26 22:05:06 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (2.2ms)
+Completed 200 OK in 76ms (Views: 71.5ms | ActiveRecord: 0.4ms)
+
+
