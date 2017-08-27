@@ -1,0 +1,36 @@
+<nav class="side">
+        <div class="navigation">
+          <ul></ul>
+        </div>
+      </nav>
+        <% @posts.each do |post| %>
+        <!-- Slide 3 (#72) -->
+    <section class="slide whiteSlide">
+        <div class="content">
+          <div class="container">
+            <div class="wrap">
+      
+              <div class="fix-12-12 left">
+                <div class="fix-9-12 toLeft">
+                  <div class="ae-1 fromRight"><h2 class="hero">He led me to <%= post.title %></h2></div>
+                  <p class="ae-5"><%= post.description %></p>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+        <% end %>
+    
+        <section class="slide whiteSlide">
+            <div class="content">
+              <div class="container">
+                <div class="wrap">
+                  <div class="fix-12-12 center">              
+                          <%= link_to 'Share a story', new_post_path, class:"button green ae-2"%>
+                  </div>      
+                </div>
+              </div>
+            </div>
+          </section>

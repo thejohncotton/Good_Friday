@@ -1,0 +1,47 @@
+<!-- Navigation -->
+    <!-- Panel Top #02 -->
+      <nav class="panel top forceMobileView">
+        <div class="sections desktop">
+          <div class="left"><%= link_to '<svg style="width:107px;height:31px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logomin"></use></svg>'.html_safe, root_path %></div>
+          <div class="center">
+            <ul class="menu">
+                      <li><%= link_to "Share a story", new_post_path %></li>
+                      <li><%= link_to "Read stories", posts_path %></li>
+            </ul>
+          </div>
+           <div class="right"> <span class="button actionButton dropdownTrigger" data-dropdown-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#share"></use></svg></span> </div>
+        </div>
+        <div class="sections compact hidden">
+          <div class="left"><%= link_to '<svg style="width:107px;height:31px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logomin"></use></svg>'.html_safe, root_path %></div>
+          <div class="right">
+            <span class="button actionButton dropdownTrigger" data-dropdown-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#share"></use></svg></span><span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- Sidebar -->
+      <nav class="sidebar blue" data-sidebar-id="1">
+        <div class="close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
+        <div class="content">  
+        <%= link_to '<svg style="width:107px;height:31px;color "><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logomin"></use></svg>'.html_safe, root_path %>
+        <ul class="mainMenu uppercase">
+          
+                <li><%= link_to "Share a story", new_post_path %></li>
+                <li><%= link_to "Read stories", posts_path %></li>
+          </ul>
+        </div>
+      </nav>
+      
+      <!-- Share Window -->
+      <div class="dropdown share top right" data-dropdown-id="1" data-text="Check out this new initiative" data-url="http://www.goodfridayinitiative.com">
+        <div class="title">Share</div>
+        <ul>
+          <li class="facebook"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#fb-like"></use></svg></li>
+          <li class="twitter"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use></svg></li>
+          <li class="googlePlus"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#googlePlus"></use></svg></li>
+          <!-- <li class="pinterest"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pinterest"></use></svg></li> -->
+          <!-- li class="stumbleupon"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#stumbleupon"></use></svg></li>
+          <li class="linkedin"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use></svg></li -->
+          <li class="mail" data-subject="Good Friday Initiative" data-body="Check out this new initiative by Red Bank Chapel.">share by email</li>
+        </ul>
+      </div>
