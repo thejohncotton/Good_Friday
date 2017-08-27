@@ -2577,3 +2577,979 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 76ms (Views: 71.5ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-08-27 12:50:25 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (14.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (21.4ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 935ms (Views: 925.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-27 12:50:38 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (783.5ms)
+  Rendered posts/new.html.erb within layouts/application (788.5ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 852ms (Views: 848.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-27 13:00:18 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.7ms)
+  Rendered posts/new.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 83ms (Views: 65.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:00:35 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 106ms (Views: 101.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:01:11 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 72ms (Views: 66.4ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:01:14 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 90ms (Views: 86.9ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:01:34 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 69ms (Views: 66.3ms)
+
+
+Started GET "/admin1234567" for 127.0.0.1 at 2017-08-27 13:02:07 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/admin1234567"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2017-08-27 13:02:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:02:18 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 91ms (Views: 87.4ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:04:01 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 69ms (Views: 65.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 13:05:31 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (20.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 110ms (Views: 105.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:06:05 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 72ms (Views: 68.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:10:06 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 88ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:12:44 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (5.6ms)
+  Rendered static_pages/admin.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"posts", :id=>nil}, missing required keys: [:id]):
+    14:                 <div class="fix-9-12 toLeft">
+    15:                   <div class="ae-1 fromRight"><h2 class="hero">He led me to <%= post.title %></h2></div>
+    16:                   <p class="ae-5"><%= post.description %></p>
+    17:                   <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Delete', delete(@post) %>
+    18:                 </div>
+    19:               </div>
+    20:             </div>
+  
+app/views/posts/_adminfeed.html.erb:17:in `block in _app_views_posts__adminfeed_html_erb___3189486584945351192_70122573328960'
+app/views/posts/_adminfeed.html.erb:6:in `_app_views_posts__adminfeed_html_erb___3189486584945351192_70122573328960'
+app/views/static_pages/admin.html.erb:1:in `_app_views_static_pages_admin_html_erb__742418558416520204_70122573364140'
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:34:07 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered posts/_adminfeed.html.erb (5.0ms)
+  Rendered static_pages/admin.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 22ms
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    3:           <ul></ul>
+    4:         </div>
+    5:       </nav>
+    6:         <% @posts.each do |post| %>
+    7:         <!-- Slide 3 (#72) -->
+    8:     <section class="slide whiteSlide">
+    9:         <div class="content">
+  
+app/views/posts/_adminfeed.html.erb:6:in `_app_views_posts__adminfeed_html_erb___3189486584945351192_70122554379920'
+app/views/static_pages/admin.html.erb:1:in `_app_views_static_pages_admin_html_erb__742418558416520204_70122524630280'
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:35:05 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered posts/_adminfeed.html.erb (9.2ms)
+  Rendered static_pages/admin.html.erb within layouts/application (14.9ms)
+Completed 500 Internal Server Error in 27ms
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    3:           <ul></ul>
+    4:         </div>
+    5:       </nav>
+    6:         <% @posts.each do |post| %>
+    7:         <!-- Slide 3 (#72) -->
+    8:     <section class="slide whiteSlide">
+    9:         <div class="content">
+  
+app/views/posts/_adminfeed.html.erb:6:in `_app_views_posts__adminfeed_html_erb___3189486584945351192_70122500501440'
+app/views/static_pages/admin.html.erb:1:in `_app_views_static_pages_admin_html_erb__742418558416520204_70122500599480'
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:35:24 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (18.7ms)
+  Rendered static_pages/admin.html.erb within layouts/application (21.3ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"posts", :id=>nil}, missing required keys: [:id]):
+    14:                 <div class="fix-9-12 toLeft">
+    15:                   <div class="ae-1 fromRight"><h2 class="hero">He led me to <%= post.title %></h2></div>
+    16:                   <p class="ae-5"><%= post.description %></p>
+    17:                   <!-- <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Delete', delete(@post) %> -->
+    18:                 </div>
+    19:               </div>
+    20:             </div>
+  
+app/views/posts/_adminfeed.html.erb:17:in `block in _app_views_posts__adminfeed_html_erb___3189486584945351192_70122561817020'
+app/views/posts/_adminfeed.html.erb:6:in `_app_views_posts__adminfeed_html_erb___3189486584945351192_70122561817020'
+app/views/static_pages/admin.html.erb:1:in `_app_views_static_pages_admin_html_erb__742418558416520204_70122507425900'
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:35:45 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (3.3ms)
+  Rendered static_pages/admin.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 177ms (Views: 172.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:36:56 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (3.3ms)
+  Rendered static_pages/admin.html.erb within layouts/application (8.3ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 87ms (Views: 84.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:37:14 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (4.3ms)
+  Rendered static_pages/admin.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 82ms (Views: 78.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:37:25 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (4.4ms)
+  Rendered static_pages/admin.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 91ms (Views: 87.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:37:54 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (3.5ms)
+  Rendered static_pages/admin.html.erb within layouts/application (8.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 85ms (Views: 81.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:46:13 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (4.1ms)
+  Rendered static_pages/admin.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 97ms (Views: 92.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 13:50:25 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (17.3ms)
+  Rendered static_pages/admin.html.erb within layouts/application (28.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 128ms (Views: 121.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 14:20:07 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (540.9ms)
+  Rendered static_pages/admin.html.erb within layouts/application (546.1ms)
+Completed 500 Internal Server Error in 558ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `topic' for #<#<Class:0x007f8d5ae80910>:0x007f8d5baa84e0>):
+    14:                 <div class="fix-9-12 toLeft">
+    15:                   <div class="ae-1 fromRight"><h2 class="hero">He led me to <%= post.title %></h2>
+    16:                   <p class="ae-5"><%= post.description %></p>
+    17:                   <%= link_to 'Edit', edit_post_path(post), class:"button gray" %> <%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' }, class:"button red" %>
+    18:                   <!-- <a href="#" class="button gray"> Edit </a><a href="#" class="button red">Delete</a></div> -->
+    19:                 </div>
+    20:               </div>
+  
+app/views/posts/_adminfeed.html.erb:17:in `block in _app_views_posts__adminfeed_html_erb___3189486584945351192_70122490479740'
+app/views/posts/_adminfeed.html.erb:6:in `_app_views_posts__adminfeed_html_erb___3189486584945351192_70122490479740'
+app/views/static_pages/admin.html.erb:1:in `_app_views_static_pages_admin_html_erb__742418558416520204_70122552511540'
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 14:20:34 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (6.6ms)
+  Rendered static_pages/admin.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 102ms (Views: 97.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2017-08-27 14:20:39 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (34.1ms)
+  Rendered posts/edit.html.erb within layouts/application (47.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 210ms (Views: 143.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2017-08-27 14:23:14 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.7ms)
+  Rendered posts/edit.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 109ms (Views: 102.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-27 14:23:24 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.8ms)
+  Rendered posts/index.html.erb within layouts/application (21.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 108ms (Views: 103.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-27 14:23:40 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.4ms)
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 84ms (Views: 79.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 14:24:01 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (4.0ms)
+  Rendered static_pages/home.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 91ms (Views: 86.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 14:25:06 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (21.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (24.5ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 121ms (Views: 112.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 14:25:12 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (8.1ms)
+  Rendered static_pages/admin.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 96ms (Views: 92.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/3/edit" for 127.0.0.1 at 2017-08-27 14:25:20 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.1ms)
+  Rendered posts/edit.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 109ms (Views: 101.0ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/posts/3" for 127.0.0.1 at 2017-08-27 14:25:57 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S7TVe48r8DTZdEnxbNgf4GeAKzts9SaJUVUokPDRTJH8GutHetjcjk0lwvrqwbpqyTAy9G8D/zZ5kQSv4o+C5Q==", "post"=>{"title"=>"share my story with others", "description"=>"Sharing is caring. Caring is sharing. Keep on sharing these stories please."}, "commit"=>"Share", "id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "share my story with others"], ["description", "Sharing is caring. Caring is sharing. Keep on sharing these stories please."], ["updated_at", "2017-08-27 18:25:57.305699"], ["id", 3]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 20ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2017-08-27 14:25:57 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 117ms (Views: 91.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2017-08-27 14:29:15 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (444.6ms)
+Completed 500 Internal Server Error in 456ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_path' for #<#<Class:0x007f8d5e3eb898>:0x007f8d5cfdaa48>
+Did you mean?  admin123456_path
+               audio_path):
+    16:                 </p>
+    17: 
+    18: <%= link_to 'Edit', edit_post_path(@post), class:"button gray" %> |
+    19: <%= link_to 'Back', admin_path %>
+  
+app/views/posts/show.html.erb:19:in `_app_views_posts_show_html_erb__2661022183197585474_70122563623440'
+Started GET "/posts/3" for 127.0.0.1 at 2017-08-27 14:29:26 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 77ms (Views: 72.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2017-08-27 14:29:42 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (11.7ms)
+Completed 200 OK in 111ms (Views: 105.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2017-08-27 14:30:10 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 85ms (Views: 81.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2017-08-27 14:30:25 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 123ms (Views: 117.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 14:30:29 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (5.3ms)
+  Rendered static_pages/admin.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 77ms (Views: 72.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2017-08-27 14:30:32 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.2ms)
+  Rendered posts/edit.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 110ms (Views: 102.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2017-08-27 14:30:36 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOSWe580ObW4+AqKKP2v07zvbNNNSNzZipNpZx0IsvkjSqhHascVDyypgYGu5ApZEl91HE6+BWaiV0VYD1Z8jQ==", "post"=>{"title"=>"Do stuff.", "description"=>"A description."}, "commit"=>"Share", "id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-27 14:30:36 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 97ms (Views: 92.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-27 14:31:07 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 76ms (Views: 70.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2017-08-27 14:31:10 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.9ms)
+  Rendered posts/edit.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 102ms (Views: 93.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2017-08-27 14:31:12 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tn0Lp5QTIJ74hAp1BYEeazprQZycYbdD9CiUFjmiE1wB0zWbYeAMJGzVgX6DmLvhlNtYU5+Xbvzc7LgpK/zdKA==", "post"=>{"title"=>"Do stuff.", "description"=>"A description."}, "commit"=>"Share", "id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-27 14:31:12 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 90ms (Views: 83.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2017-08-27 14:32:08 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.6ms)
+  Rendered posts/edit.html.erb within layouts/application (17.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (2.7ms)
+Completed 200 OK in 135ms (Views: 128.7ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2017-08-27 14:32:58 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wllrn8vy5bHjUWG4yG2tfxr/S/5fxhBcBnDVrFyRqp9191WjPgHJC3cA6rNOdAj1tE9SMVwwyeMutPmTTs9k6w==", "post"=>{"title"=>"Do stuff.", "description"=>"A description."}, "commit"=>"Share", "id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-27 14:32:58 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 137ms (Views: 128.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 14:33:03 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (4.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 133ms (Views: 127.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-27 14:33:07 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.4ms)
+  Rendered posts/new.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 107ms (Views: 103.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-08-27 14:34:18 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/e12vZCnG/b9AaSW+gpNKqozgFamYfpqhbPyYdajIwVKQ0iBZVQ3TGlQL518E+igBIOZmaWXI9Wtd95exP3tcQ==", "post"=>{"title"=>"Love my neighbor", "description"=>"We have not always been able to connect with our neighbors very well, but God has been using us to help share his love by mowing the grass for our next door neighbor whose husband is in a permanent nursing home."}, "commit"=>"Share"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Love my neighbor"], ["description", "We have not always been able to connect with our neighbors very well, but God has been using us to help share his love by mowing the grass for our next door neighbor whose husband is in a permanent nursing home."], ["created_at", "2017-08-27 18:34:18.654436"], ["updated_at", "2017-08-27 18:34:18.654436"]]
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 24ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2017-08-27 14:34:18 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 124ms (Views: 117.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2017-08-27 14:38:03 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 104ms (Views: 83.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/posts/4/edit" for 127.0.0.1 at 2017-08-27 14:38:14 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (9.6ms)
+  Rendered posts/edit.html.erb within layouts/application (15.7ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 103ms (Views: 96.6ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/posts/4" for 127.0.0.1 at 2017-08-27 14:38:18 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FpdZu7BqncK/qCxg87sU4FK6cBxr11y8RjcVPLuHU0WhOWeHRZmxeCv5p2t1orFq/App02ghhQNu8zkDqdmdMQ==", "post"=>{"title"=>"Love my neighbor", "description"=>"We have not always been able to connect with our neighbors very well, but God has been using us to help share his love by mowing the grass for our next door neighbor whose husband is in a permanent nursing home."}, "commit"=>"Share", "id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 9ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2017-08-27 14:38:18 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 107ms (Views: 101.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2017-08-27 14:39:13 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 97ms (Views: 74.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/4/edit" for 127.0.0.1 at 2017-08-27 14:39:20 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.9ms)
+  Rendered posts/edit.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 99ms (Views: 94.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/4" for 127.0.0.1 at 2017-08-27 14:39:23 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l/eesyy8JWsWc5IJq7/dvw65VpL9wMKg1OW9lwARAJsgWaCP2U8J0YIiGQItpng1oAlPXf42Gx/8IZGoEk/O7w==", "post"=>{"title"=>"Love my neighbor", "description"=>"We have not always been able to connect with our neighbors very well, but God has been using us to help share his love by mowing the grass for our next door neighbor whose husband is in a permanent nursing home."}, "commit"=>"Share", "id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 12ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2017-08-27 14:39:23 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 108ms (Views: 102.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-08-27 14:40:10 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.4ms)
+  Rendered posts/new.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 95ms (Views: 71.8ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-08-27 14:40:16 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Cj+zzr4zW5i3Ym6Jpoys99U/gg33+cX5TjsxIIrTTKW9kY3yS8B3IiMz5YIglQl9e4+bwvQPHEZm/x0fmI2C0Q==", "post"=>{"title"=>"new post", "description"=>"asdfqwdfonj"}, "commit"=>"Share"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "new post"], ["description", "asdfqwdfonj"], ["created_at", "2017-08-27 18:40:16.316640"], ["updated_at", "2017-08-27 18:40:16.316640"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 12ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2017-08-27 14:40:16 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 131ms (Views: 121.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 14:43:24 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (4.1ms)
+  Rendered static_pages/admin.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 86ms (Views: 83.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 14:43:58 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (4.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 101ms (Views: 97.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin123456" for 127.0.0.1 at 2017-08-27 14:44:11 -0400
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_adminfeed.html.erb (5.0ms)
+  Rendered static_pages/admin.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 103ms (Views: 98.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2017-08-27 14:44:14 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (24.8ms)
+  Rendered posts/edit.html.erb within layouts/application (29.8ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 165ms (Views: 155.9ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2017-08-27 14:44:46 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fBaaWeem1hL3KjGF/baFVqrd3+XhdBILA6b/CF8hx5LLuKRlElX6qGN7uo57ryDcBG3GKuKCy7QrYtM3TX8J5g==", "post"=>{"title"=>"Do stuff.", "description"=>"A description."}, "commit"=>"Share", "id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-27 14:44:46 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 128ms (Views: 121.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-27 14:45:20 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 95ms (Views: 89.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-27 14:45:53 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/gfa/Good_Friday/app/views/posts/show.html.erb:16: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+...ead Stories', posts_path class:"button blue");@output_buffer...
+...                               ^):
+  
+app/views/posts/show.html.erb:16: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+Started GET "/posts/1" for 127.0.0.1 at 2017-08-27 14:46:04 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (2.3ms)
+Completed 200 OK in 100ms (Views: 94.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-27 14:46:07 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (2.7ms)
+  Rendered posts/index.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 99ms (Views: 94.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-27 14:46:25 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (3.9ms)
+  Rendered posts/index.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 119ms (Views: 114.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-08-27 14:46:53 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (4.0ms)
+  Rendered posts/index.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 120ms (Views: 115.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 14:47:03 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_feed.html.erb (5.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 111ms (Views: 105.0ms | ActiveRecord: 0.5ms)
+
+

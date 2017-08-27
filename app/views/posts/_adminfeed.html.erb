@@ -1,0 +1,25 @@
+<nav class="side">
+        <div class="navigation">
+          <ul></ul>
+        </div>
+      </nav>
+        <% @posts.each do |post| %>
+        <!-- Slide 3 (#72) -->
+    <section class="slide whiteSlide">
+        <div class="content">
+          <div class="container">
+            <div class="wrap">
+      
+              <div class="fix-12-12 left">
+                <div class="fix-9-12 toLeft">
+                  <div class="ae-1 fromRight"><h2 class="hero">He led me to <%= post.title %></h2>
+                  <p class="ae-5"><%= post.description %></p>
+                  <%= link_to 'Edit', edit_post_path(post), class:"button gray" %> <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"button red" %>
+                  <!-- <a href="#" class="button gray"> Edit </a><a href="#" class="button red">Delete</a></div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <% end %>
