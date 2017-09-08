@@ -3620,3 +3620,40 @@ Processing by PostsController#new as HTML
 Completed 200 OK in 1124ms (Views: 1116.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-08 09:17:44 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  Rendered posts/_feed.html.erb (32.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (40.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 453ms (Views: 441.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-08 09:17:51 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.7ms)
+  Rendered posts/new.html.erb within layouts/application (11.1ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/posts/_form.html.erb:21: syntax error, unexpected ','
+...lder: "....share the story.", , required: "true" );@output_b...
+...                               ^):
+  
+app/views/posts/_form.html.erb:21: syntax error, unexpected ','
+app/views/posts/new.html.erb:11:in `_app_views_posts_new_html_erb___3467217277489109738_70264912674940'
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-08 09:18:08 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (902.4ms)
+  Rendered posts/new.html.erb within layouts/application (908.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 994ms (Views: 985.3ms | ActiveRecord: 0.0ms)
+
+
