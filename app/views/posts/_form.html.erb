@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :he_led_me_to %>
-    <%= form.text_field :title, id: :post_title, placeholder: "Love my neighbor" %>
+    <%= form.text_field :title, id: :post_title, placeholder: "Love my neighbor", required: "true" %>
   </div>
 
   <div class="field">
     <%= form.label :story %>
-    <%= form.text_area :description, id: :post_description, placeholder: "....Share the story." %>
+    <%= form.text_area :description, id: :post_description, placeholder: "....share the story.", , required: "true" %>
   </div>
 <div>
     <%= form.submit 'Share', class:"button green wide ae-10 cropBottom" %> </br>
