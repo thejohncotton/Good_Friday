@@ -5,6 +5,7 @@
       </nav>
       <!-- <section><div><p id="notice"><%= notice %></div> -->
       </section>
+     
         <% @posts.each do |post| %>
         <!-- Slide 3 (#72) -->
     <section class="slide whiteSlide">
@@ -29,7 +30,9 @@
             <div class="content">
               <div class="container">
                 <div class="wrap">
-                  <div class="fix-12-12 center">              
+                    <%= will_paginate @posts, class:"apple_pagination center", :page_links => false %>
+                  </br>
+                  <div class="fix-12-12 center">  
                           <%= link_to 'Share a story', new_post_path, class:"button green ae-2"%>
                   </div>      
                 </div>
