@@ -1,4 +1,4 @@
-class API::V1::PostsController < ApplicationController
+class Api::V1::PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
  def index 
@@ -10,7 +10,7 @@ class API::V1::PostsController < ApplicationController
   # GET /api/v1/posts/1.json
   def show
   end
-
+  # 
   # GET /api/v1/posts/new
   def new
     @post = Post.new
