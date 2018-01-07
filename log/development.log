@@ -9248,3 +9248,16 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 96ms (Views: 84.1ms | ActiveRecord: 2.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-01-07 01:02:36 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/_feed.html.erb (76.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (86.3ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 642ms (Views: 622.2ms | ActiveRecord: 2.7ms)
+
+
