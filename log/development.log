@@ -9223,3 +9223,28 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 154ms (Views: 147.0ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-01-06 22:42:55 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/_feed.html.erb (795.8ms)
+  Rendered static_pages/home.html.erb within layouts/application (804.8ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 1324ms (Views: 1308.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-06 22:44:19 -0500
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/_feed.html.erb (18.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (22.4ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 96ms (Views: 84.1ms | ActiveRecord: 2.2ms)
+
+
