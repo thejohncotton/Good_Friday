@@ -4,7 +4,7 @@ class Api::V1::PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-   @posts = Post.paginate(:page => params[:page]).order(created_at: :desc)
+   @posts = Post.all
   end
 
   # GET /posts/1
