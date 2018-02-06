@@ -4566,3 +4566,772 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 80ms (Views: 73.9ms | ActiveRecord: 0.9ms)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateAdmins (20180206154039)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admins_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admins_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180206154039"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (76.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admins_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admins_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admins_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admins_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-02-06 10:47:08 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/_feed.html.erb (920.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (927.4ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_footer.html.erb (4.5ms)
+Completed 200 OK in 2200ms (Views: 2187.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 10:47:13 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admins/sign_in" for 127.0.0.1 at 2018-02-06 10:47:42 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/shared/_links.html.erb (2.2ms)
+  Rendered /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/sessions/new.html.erb within layouts/application (28.2ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 147ms (Views: 108.6ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mAdmin Load (3.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/admins/sign_in" for 127.0.0.1 at 2018-02-06 11:05:53 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pIteBxBEvGJPTKaR26LAknXB8YPLt/9AFBuw7+TOLzuoguZhTrw3vdzgJrlClYZYkId6pF7Cd+ZqSP7zICKdqg==", "admin"=>{"email"=>"john@johncotton.us", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "john@johncotton.us"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 9ms (ActiveRecord: 1.2ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pIteBxBEvGJPTKaR26LAknXB8YPLt/9AFBuw7+TOLzuoguZhTrw3vdzgJrlClYZYkId6pF7Cd+ZqSP7zICKdqg==", "admin"=>{"email"=>"john@johncotton.us", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/shared/_links.html.erb (2.2ms)
+  Rendered /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/sessions/new.html.erb within layouts/application (15.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 295ms (Views: 124.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAdmin Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE "admins"."email" = ? LIMIT ?[0m  [["email", "john@johncotton.us"], ["LIMIT", 1]]
+  [1m[35mSQL (4.4ms)[0m  [1m[32mINSERT INTO "admins" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "john@johncotton.us"], ["encrypted_password", "$2a$11$6GXguy0ktv98CEWUxYnyWOIti3a0Nk1mtcRd.1YNXdQhloPjnMDaq"], ["created_at", "2018-02-06 16:09:03.896287"], ["updated_at", "2018-02-06 16:09:03.896287"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/admins/sign_in" for 127.0.0.1 at 2018-02-06 11:09:16 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"daLcWkLtX6y8/8HkUZ80aX89DNX8NpJKsNFo3QWOOeN5q2Q8HBXUcy9TQczIqHKjmnuH8mlDGuzOgibBwWKLcg==", "admin"=>{"email"=>"john@johncotton.us", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "john@johncotton.us"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "admins" SET "remember_created_at" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["remember_created_at", "2018-02-06 16:09:16.349192"], ["updated_at", "2018-02-06 16:09:16.352654"], ["id", 2]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "admins" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-02-06 16:09:16.392502"], ["last_sign_in_at", "2018-02-06 16:09:16.392502"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-02-06 16:09:16.395455"], ["id", 2]]
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 291ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-06 11:09:16 -0500
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/_feed.html.erb (19.8ms)
+  Rendered static_pages/home.html.erb within layouts/application (26.0ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 158ms (Views: 148.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:09:24 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin123456" for 127.0.0.1 at 2018-02-06 11:10:34 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (4.0ms)
+Completed 401 Unauthorized in 26ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:5: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/static_pages/admin.html.erb:5: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/admin123456" for 127.0.0.1 at 2018-02-06 11:12:18 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (1.4ms)
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:4: syntax error, unexpected '<', expecting keyword_end
+<% end ;
+ ^
+/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:6: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:8: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/static_pages/admin.html.erb:4: syntax error, unexpected '<', expecting keyword_end
+app/views/static_pages/admin.html.erb:6: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/static_pages/admin.html.erb:8: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin123456" for 127.0.0.1 at 2018-02-06 11:12:44 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (1.6ms)
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:3: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:6: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:8: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/static_pages/admin.html.erb:3: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/static_pages/admin.html.erb:6: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/static_pages/admin.html.erb:8: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin123456" for 127.0.0.1 at 2018-02-06 11:12:56 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  Rendered posts/_adminfeed.html.erb (11.3ms)
+  Rendered static_pages/admin.html.erb within layouts/application (21.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 139ms (Views: 132.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:15:23 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  Rendered posts/_adminfeed.html.erb (17.3ms)
+  Rendered static_pages/admin.html.erb within layouts/application (74.9ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 180ms (Views: 170.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-02-06 11:15:41 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:15:54 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mAdmin Load (1.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  Rendered posts/_adminfeed.html.erb (12.3ms)
+  Rendered static_pages/admin.html.erb within layouts/application (33.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 266ms (Views: 257.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2018-02-06 11:16:00 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admins/sign_out"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admins/log_out" for 127.0.0.1 at 2018-02-06 11:16:12 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admins/log_out"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admins" for 127.0.0.1 at 2018-02-06 11:16:22 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admins"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admins/sign_out" for 127.0.0.1 at 2018-02-06 11:16:36 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admins/sign_out"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admins/sign_out" for 127.0.0.1 at 2018-02-06 11:18:34 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admins/sign_out"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:19:04 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  Rendered posts/_adminfeed.html.erb (26.6ms)
+  Rendered static_pages/admin.html.erb within layouts/application (78.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 183ms (Views: 173.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at 2018-02-06 11:19:10 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admins/sign_out"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admins/sign_out" for 127.0.0.1 at 2018-02-06 11:19:48 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admins/sign_out"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:23:15 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  Rendered posts/_adminfeed.html.erb (8.1ms)
+  Rendered static_pages/admin.html.erb within layouts/application (18.4ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 139ms (Views: 133.2ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/admins/sign_out" for 127.0.0.1 at 2018-02-06 11:23:20 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OtuVJJqP7g07m9um3l1fy5Iecrg6Sz1bRpEfEUbKryo/weNHlfBU6g7PjbJArGGBIsQIrzKMBDbj5/K2ct7P6A=="}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "admins" SET "remember_created_at" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["remember_created_at", nil], ["updated_at", "2018-02-06 16:23:20.207544"], ["id", 2]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-06 11:23:20 -0500
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/_feed.html.erb (16.8ms)
+  Rendered static_pages/home.html.erb within layouts/application (31.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 115ms (Views: 108.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:23:27 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (7.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 185ms (Views: 179.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:24:11 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (1.5ms)
+Completed 401 Unauthorized in 27ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:6: syntax error, unexpected '<', expecting keyword_end
+<% end ;
+ ^
+/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:10: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/static_pages/admin.html.erb:6: syntax error, unexpected '<', expecting keyword_end
+app/views/static_pages/admin.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/static_pages/admin.html.erb:10: syntax error, unexpected end-of-input, expecting keyword_end
+Started PUT "/__web_console/repl_sessions/c7435227bca4dd481a00ee1e224f2fc5" for 127.0.0.1 at 2018-02-06 11:24:20 -0500
+Started PUT "/__web_console/repl_sessions/c7435227bca4dd481a00ee1e224f2fc5" for 127.0.0.1 at 2018-02-06 11:24:20 -0500
+Started PUT "/__web_console/repl_sessions/c7435227bca4dd481a00ee1e224f2fc5" for 127.0.0.1 at 2018-02-06 11:24:30 -0500
+Started GET "/admin/login" for 127.0.0.1 at 2018-02-06 11:24:40 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admin/login"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:25:16 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered static_pages/admin.html.erb within layouts/application (309.8ms)
+Completed 401 Unauthorized in 327ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `redirect' for #<#<Class:0x007fb8b31ddb48>:0x007fb8b44264d0>):
+    2: <%= link_to 'logout', destroy_admin_session_path, method: :delete %>
+    3: <%= render 'posts/adminfeed' %>
+    4: <% else %>
+    5: <% redirect new_admin_session_path %>
+    6: <% end %>
+  
+app/views/static_pages/admin.html.erb:5:in `_app_views_static_pages_admin_html_erb___4463608195452872580_70215637481340'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:25:33 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered static_pages/admin.html.erb within layouts/application (268.4ms)
+Completed 401 Unauthorized in 289ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `redirect' for #<#<Class:0x007fb8b31ddb48>:0x007fb8b35efad8>):
+    2: <%= link_to 'logout', destroy_admin_session_path, method: :delete %>
+    3: <%= render 'posts/adminfeed' %>
+    4: <% else %>
+    5: <% redirect "new_admin_session_path" %>
+    6: <% end %>
+  
+app/views/static_pages/admin.html.erb:5:in `_app_views_static_pages_admin_html_erb___4463608195452872580_70215650148980'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:26:04 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (2.8ms)
+Completed 401 Unauthorized in 32ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:5: syntax error, unexpected '\n', expecting '='
+/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:10: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/static_pages/admin.html.erb:5: syntax error, unexpected '\n', expecting '='
+app/views/static_pages/admin.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/static_pages/admin.html.erb:10: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:27:44 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered static_pages/admin.html.erb within layouts/application (375.8ms)
+Completed 401 Unauthorized in 401ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `redirect_to' for #<#<Class:0x007fb8b31ddb48>:0x007fb8b696f318>):
+    2: <%= link_to 'logout', destroy_admin_session_path, method: :delete %>
+    3: <%= render 'posts/adminfeed' %>
+    4: <% else %>
+    5: <% redirect_to new_admin_session_path %>
+    6: <% end %>
+  
+app/views/static_pages/admin.html.erb:5:in `_app_views_static_pages_admin_html_erb___4463608195452872580_70215657029240'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:28:19 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  Rendered static_pages/admin.html.erb within layouts/application (1.4ms)
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/johncotton/Desktop/rails_prod/Good_Friday/Good_Friday/app/views/static_pages/admin.html.erb:9: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/static_pages/admin.html.erb:9: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:29:36 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered static_pages/admin.html.erb within layouts/application (271.2ms)
+Completed 401 Unauthorized in 296ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `redirect_to' for #<#<Class:0x007fb8b31ddb48>:0x007fb8b4486470>):
+    3: <%= link_to 'logout', destroy_admin_session_path, method: :delete %>
+    4: <%= render 'posts/adminfeed' %>
+    5: <% else %>
+    6: <% redirect_to new_admin_session_path, method: :get %>
+    7: <% end %>
+  
+app/views/static_pages/admin.html.erb:6:in `_app_views_static_pages_admin_html_erb___4463608195452872580_70215637677860'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:29:50 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered static_pages/admin.html.erb within layouts/application (260.0ms)
+Completed 401 Unauthorized in 286ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `redirect' for #<#<Class:0x007fb8b31ddb48>:0x007fb8b6aa1380>):
+    3: <%= link_to 'logout', destroy_admin_session_path, method: :delete %>
+    4: <%= render 'posts/adminfeed' %>
+    5: <% else %>
+    6: <% redirect new_admin_session_path, method: :get %>
+    7: <% end %>
+  
+app/views/static_pages/admin.html.erb:6:in `_app_views_static_pages_admin_html_erb___4463608195452872580_70215657655980'
+Started GET "/admin" for 127.0.0.1 at 2018-02-06 11:31:28 -0500
+Processing by StaticPagesController#admin as HTML
+  Rendering static_pages/admin.html.erb within layouts/application
+Redirected to http://localhost:3000/admins/sign_in
+  Rendered static_pages/admin.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 302 Found in 90ms (Views: 84.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2018-02-06 11:31:28 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/shared/_links.html.erb (2.7ms)
+  Rendered /Users/johncotton/.rvm/gems/ruby-2.3.4/gems/devise-4.4.1/app/views/devise/sessions/new.html.erb within layouts/application (22.2ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 123ms (Views: 119.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-06 11:31:35 -0500
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/_feed.html.erb (8.2ms)
+  Rendered static_pages/home.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (18.3ms)
+Completed 200 OK in 165ms (Views: 159.1ms | ActiveRecord: 1.1ms)
+
+

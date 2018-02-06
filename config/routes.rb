@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admins
   root 'static_pages#home'
-  get  "/admin123456" => 'static_pages#admin'
+  get  "/admin" => 'static_pages#admin'
   resources :posts
   namespace :api do
     namespace :v1 do
